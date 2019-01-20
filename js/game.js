@@ -4,7 +4,7 @@ var game = {
     data : {
         // score
         score : 0,
-        keys: 0, // TODO: Change Back to Zero
+        keys: 0,
         frozen: false,
         lives: 3,
         flag: false,
@@ -37,7 +37,7 @@ var game = {
         me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, new game.PlayScreen());
 
-        // add our player entity in the entity pool
+        // Register entities
         me.pool.register("mainPlayer", game.PlayerEntity);
         me.pool.register("KeyEntity", game.KeyEntity);
         me.pool.register("unhideEntity", game.unhideEntity);
@@ -54,9 +54,6 @@ var game = {
         me.input.bindKey(me.input.KEY.LEFT,  "left");
         me.input.bindKey(me.input.KEY.RIGHT, "right");
         
-        me.input.bindKey(me.input.KEY.T, "test");
-        
-        // add WASD
         me.input.bindKey(me.input.KEY.W,  "up");
         me.input.bindKey(me.input.KEY.S, "down");
         me.input.bindKey(me.input.KEY.A,  "left");
