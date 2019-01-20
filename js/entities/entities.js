@@ -41,7 +41,7 @@ game.PlayerEntity = me.Entity.extend({
             }
             if (this.renderable.isCurrentAnimation("dead") && !game.data.wait_for_reload) {
                 game.data.wait_for_reload = true;
-                setTimeout(()=>{
+                setTimeout(function () {
                     game.data.wait_for_reload = false;
                     if (--game.data.lives == 0) {
                         me.levelDirector.loadLevel("tavern")
@@ -69,7 +69,7 @@ game.PlayerEntity = me.Entity.extend({
             moving = true;
 
             // update the entity velocity
-            if (this.distanceTo(me.game.world.children.find((e)=>{return e.name == 'stopEntity'})) >= 9) { //Return here
+            if (this.distanceTo(me.game.world.children.find(function (e) {return e.name == 'stopEntity'})) >= 9) { //Return here
                 this.body.vel.y = -0.3 * me.timer.tick;
             } else {
                 moving = false;
@@ -180,7 +180,7 @@ game.unhideEntity = me.Entity.extend({
   init: function (x, y, settings) {
     // call the parent constructor
     this._super(me.CollectableEntity, 'init', [x, y , settings]);
-    me.game.world.children.find((e)=>{return e.name == 'Shadow'}).alpha = 0.9;
+    me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha = 0.9;
     
     // Handle Audio
     me.audio.stopTrack();
@@ -192,7 +192,7 @@ game.unhideEntity = me.Entity.extend({
   // this function is called by the engine, when
   // an object is touched by something (here collected)
   onCollision : function (response, other) {
-    me.game.world.children.find((e)=>{return e.name == 'Shadow'}).alpha = 0;
+    me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha = 0;
     // me.game.world.children[1].alpha = 0;
     me.game.world.removeChild(this);
     
@@ -248,15 +248,15 @@ game.vampireEntity = me.Entity.extend({ // TODO: Re-add to tiled. AFTER REIGONAL
     // this.renderable.addAnimation("normal",  [0]);
     // this.renderable.setCurrentAnimation("normal");
     
-    me.game.world.children.find((e)=>{return e.name == 'Shadow'}).alpha = 0;
-    me.game.world.children.find((e)=>{return e.name == 'tobecontinued'}).alpha = 0;
+    me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha = 0;
+    me.game.world.children.find(function (e) {return e.name == 'tobecontinued'}).alpha = 0;
   },
   update : function (dt) {
       if (game.data.flag) {
-          me.game.world.children.find((e)=>{return e.name == 'Shadow'}).alpha += 0.01;
-          if (me.game.world.children.find((e)=>{return e.name == 'Shadow'}).alpha > 1) {
-              me.game.world.children.find((e)=>{return e.name == 'tobecontinued'}).alpha += 0.1;
-              me.game.world.children.find((e)=>{return e.name == 'Shadow'}).alpha = 1;
+          me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha += 0.01;
+          if (me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha > 1) {
+              me.game.world.children.find(function (e) {return e.name == 'tobecontinued'}).alpha += 0.1;
+              me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha = 1;
           }
           // this.body.vel.y += 0.5 * me.timer.tick;
           // this.body.update(dt);
@@ -302,7 +302,7 @@ game.stopEntity = me.Entity.extend({
     this.renderable.setCurrentAnimation("stand");
   },
   update : function (dt) {
-     var player = me.game.world.children.find((e)=>{return e.name == 'mainPlayer'});
+     var player = me.game.world.children.find(function (e) {return e.name == 'mainPlayer'});
      
      if (player.alive) {
          if (this.distanceTo(player) <= 30) {
