@@ -103,12 +103,7 @@
   <object id="75" name="spikesEntity" x="96" y="144">
    <polygon points="0,0 0,8 8,4"/>
   </object>
-  <object id="81" name="skelespiderEntity" x="40" y="24" width="11" height="7">
-   <properties>
-    <property name="framewidth" type="int" value="11"/>
-    <property name="image" value="spider"/>
-   </properties>
-  </object>
+  <object id="81" name="skelespiderEntity" x="40" y="24" width="11" height="7"/>
  </objectgroup>
  <objectgroup id="8" name="collision">
   <object id="8" x="0" y="0" width="8" height="240"/>
