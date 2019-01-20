@@ -50,7 +50,7 @@ game.PlayerEntity = me.Entity.extend({
                     } else {
                         me.levelDirector.reloadLevel();
                     }                    
-                }, 3000);
+                }, 2000);
 
             }
             
