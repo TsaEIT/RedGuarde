@@ -14,7 +14,7 @@ game.PlayScreen = me.ScreenObject.extend({
     me.game.world.addChild(this.HUD);
     
     
-    me.audio.setVolume(0.055)
+    me.audio.setVolume(1)
     me.audio.playTrack("tavern-audio");
   },
 
