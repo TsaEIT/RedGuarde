@@ -307,7 +307,7 @@ game.stopEntity = me.Entity.extend({
      var player = me.game.world.children.find(function (e) {return e.name == 'mainPlayer'});
      
      if (player.alive) {
-         if (this.distanceTo(player) <= 30) {
+         if (this.distanceTo(player) <= 40) {
              var angle = this.angleTo(player)
              this.body.vel.y += Math.sin(angle) * this.body.accel.y * me.timer.tick;
              this.body.vel.x += Math.cos(angle) * this.body.accel.x * me.timer.tick;
