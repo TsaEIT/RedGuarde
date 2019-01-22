@@ -186,7 +186,7 @@ game.unhideEntity = me.Entity.extend({
     
     // Handle Audio
     me.audio.stopTrack();
-    me.audio.setVolume(0.055);
+    me.audio.setVolume(1);
     me.audio.playTrack("cave-audio");
 
   },
