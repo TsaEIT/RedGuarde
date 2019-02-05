@@ -49,7 +49,6 @@ game.PlayerEntity = me.Entity.extend({
                         game.data.keys = 0;
                     } else {
                         game.data.keys = 0;
-                        game.data.lives = 3;
                         me.levelDirector.reloadLevel();
                     }                    
                 }, 2000);

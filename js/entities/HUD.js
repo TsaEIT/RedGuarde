@@ -36,9 +36,9 @@ game.HUD.KeyItem = me.Renderable.extend({
         this._super(me.Renderable, 'init', [x, y, 10, 10]);
 
         // local copy of the global score
-        this.score = -1;
+        this.lives = -1;
         
-        this.font = new me.BitmapFont(me.loader.getBinary('PressStart2P'), me.loader.getImage('PressStart2P'), 1);
+        this.font = new me.BitmapFont(me.loader.getBinary('PressStart2P'), me.loader.getImage('PressStart2P'), 0.35);
         
         this.font.textAlign = "right";
         this.font.textBaseline = "bottom";
@@ -51,8 +51,8 @@ game.HUD.KeyItem = me.Renderable.extend({
     update : function () {
         // we don't do anything fancy here, so just
         // return true if the score has been updated
-        if (this.score !== game.data.keys) {
-            this.score = game.data.keys;
+        if (this.lives !== game.data.lives) {
+            this.lives = game.data.lives;
             return true;
         }
         return false;
@@ -62,7 +62,7 @@ game.HUD.KeyItem = me.Renderable.extend({
      * draw the score
      */
     draw : function (context) {
-        this.font.draw (context, game.data.keys, me.game.viewport.width + this.pos.x, me.game.viewport.height + this.pos.y);
+        this.font.draw (context, game.data.lives, me.game.viewport.width + this.pos.x - 2, me.game.viewport.height + this.pos.y - 2);
     }
 
 });
