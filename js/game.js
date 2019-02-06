@@ -8,7 +8,8 @@ var game = {
         frozen: false,
         lives: 3,
         flag: false,
-        wait_for_reload: false
+        wait_for_reload: false,
+        message: "Hello World"
     },
 
     // 160

@@ -233,6 +233,7 @@ game.doorEntity = me.CollectableEntity.extend({
             this.body.setCollisionMask(me.collision.types.NO_OBJECT);
         } else {
             console.log("The door remains stubbornly shut")
+            game.data.message = "The Door Remains Stubbornly Shut"
         }
       }
       return false;
