@@ -63,7 +63,7 @@ game.HUD.KeyItem = me.Renderable.extend({
      * draw the score
      */
     draw : function (context) {
-        this.font.draw (context, game.data.lives, me.game.viewport.width + this.pos.x - 2, me.game.viewport.height + this.pos.y - 2);
+        this.font.draw (context, game.data.lives, me.game.viewport.width + this.pos.x - 2, me.game.viewport.height + this.pos.y - 12);
     }
 
 });
@@ -81,7 +81,7 @@ game.HUD.Message = me.Renderable.extend({
         // local copy of the message
         this.message = "♀";
         
-        this.font = new me.BitmapFont(me.loader.getBinary('PressStart2P'), me.loader.getImage('PressStart2P'), 0.3);
+        this.font = new me.BitmapFont(me.loader.getBinary('font'), me.loader.getImage('font'), 0.1);
         
         this.font.textAlign = "center";
         this.font.textBaseline = "bottom";
