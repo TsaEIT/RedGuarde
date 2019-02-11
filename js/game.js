@@ -9,15 +9,18 @@ var game = {
         lives: 3,
         flag: false,
         wait_for_reload: false,
-        message: "Hello World"
+        message: ""
     },
-
-    // 160
-    // 120
+    
+    "post_message": function(message) {
+        game.data.message = message;
+        setTimeout(function(){game.data.message = ""}, 3000);
+    },
+    
     // Run on page load.
     "onload" : function () {
         // Initialize the video.
-        if (!me.video.init(120, 96, {wrapper : "screen", scale : "auto", scaleMethod : "fit"})) {
+        if (!me.video.init(240, 192, {wrapper : "screen", scale : "auto", scaleMethod : "fit"})) {
             alert("Sorry, it seems your browser can't run the game.\nTry updating your browser.");
             return;
         }

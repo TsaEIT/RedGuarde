@@ -11,7 +11,7 @@ game.PlayerEntity = me.Entity.extend({
         this._super(me.Entity, 'init', [x, y , settings]);
         
         // set the default horizontal & vertical speed (accel vector)
-        this.body.setVelocity(1, 1);
+        this.body.setVelocity(2, 2);
 
         // set the display to follow our position on both axis
         me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
@@ -232,8 +232,8 @@ game.doorEntity = me.CollectableEntity.extend({
             this.renderable.setCurrentAnimation("open");
             this.body.setCollisionMask(me.collision.types.NO_OBJECT);
         } else {
-            console.log("The door remains stubbornly shut")
-            game.data.message = "The Door Remains Stubbornly Shut"
+            console.log("The Door Remains Shut");
+            game.post_message("The Door Remains Shut");
         }
       }
       return false;
@@ -299,7 +299,7 @@ game.stopEntity = me.Entity.extend({
     this._super(me.Entity, 'init', [x, y , settings]);
     
     // set the default horizontal & vertical speed (accel vector)
-    this.body.setVelocity(0.3, 0.3);    
+    this.body.setVelocity(0.6, 0.6);    
     this.renderable.addAnimation("stand",  [0]);
     this.renderable.setCurrentAnimation("stand");
   },
@@ -307,7 +307,7 @@ game.stopEntity = me.Entity.extend({
      var player = me.game.world.children.find(function (e) {return e.name == 'mainPlayer'});
      
      if (player.alive) {
-         if (this.distanceTo(player) <= 40) {
+         if (this.distanceTo(player) <= 80) {
              var angle = this.angleTo(player)
              this.body.vel.y += Math.sin(angle) * this.body.accel.y * me.timer.tick;
              this.body.vel.x += Math.cos(angle) * this.body.accel.x * me.timer.tick;

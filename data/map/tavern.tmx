@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="8" tileheight="8" infinite="0" nextlayerid="8" nextobjectid="47">
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="53">
  <tileset firstgid="1" source="tavern.tsx"/>
  <tileset firstgid="257" source="fireplace.tsx"/>
  <layer id="1" name="Black" width="20" height="15">
@@ -23,13 +23,13 @@
   </data>
  </layer>
  <objectgroup id="5" name="Entities">
-  <object id="3" name="mainPlayer" x="16" y="40" width="8" height="8">
+  <object id="3" name="mainPlayer" x="32" y="80" width="16" height="16">
    <properties>
-    <property name="framewidth" type="int" value="8"/>
+    <property name="framewidth" type="int" value="16"/>
     <property name="image" value="player"/>
    </properties>
   </object>
-  <object id="45" name="me.LevelEntity" x="40" y="120" width="16" height="8">
+  <object id="45" name="me.LevelEntity" x="80" y="240" width="32" height="16">
    <properties>
     <property name="duration" type="int" value="250"/>
     <property name="fade" type="color" value="#ff000000"/>
@@ -43,38 +43,38 @@
   </data>
  </layer>
  <objectgroup id="6" name="collision">
-  <object id="5" x="8" y="112" width="32" height="8"/>
-  <object id="7" x="0" y="24" width="8" height="88"/>
-  <object id="9" x="0" y="8" width="8" height="8"/>
-  <object id="10" x="8" y="0" width="144" height="8"/>
-  <object id="12" x="152" y="8" width="8" height="104"/>
-  <object id="13" x="56" y="112" width="96" height="8"/>
-  <object id="15" x="8" y="32" width="80" height="8"/>
-  <object id="16" x="104" y="32" width="48" height="8"/>
-  <object id="19" x="64" y="56" width="32" height="16"/>
-  <object id="20" x="72" y="48" width="16" height="32"/>
-  <object id="21" x="24" y="48" width="16" height="32"/>
-  <object id="22" x="16" y="56" width="32" height="16"/>
-  <object id="26" x="120" y="48" width="16" height="32"/>
-  <object id="27" x="112" y="56" width="32" height="16"/>
-  <object id="28" x="64" y="96" width="72" height="8"/>
-  <object id="29" x="72" y="104" width="8" height="8"/>
-  <object id="30" x="88" y="104" width="8" height="8"/>
-  <object id="31" x="104" y="104" width="8" height="8"/>
-  <object id="32" x="120" y="104" width="8" height="8"/>
-  <object id="34" x="8" y="16">
-   <polygon points="0,0 0,-8 8,-8"/>
+  <object id="5" x="16" y="224" width="64" height="16"/>
+  <object id="7" x="0" y="48" width="16" height="176"/>
+  <object id="9" x="0" y="16" width="16" height="16"/>
+  <object id="10" x="16" y="0" width="288" height="16"/>
+  <object id="12" x="304" y="16" width="16" height="208"/>
+  <object id="13" x="112" y="224" width="192" height="16"/>
+  <object id="15" x="16" y="64" width="160" height="16"/>
+  <object id="16" x="208" y="64" width="96" height="16"/>
+  <object id="19" x="128" y="112" width="64" height="32"/>
+  <object id="20" x="144" y="96" width="32" height="64"/>
+  <object id="21" x="48" y="96" width="32" height="64"/>
+  <object id="22" x="32" y="112" width="64" height="32"/>
+  <object id="26" x="240" y="96" width="32" height="64"/>
+  <object id="27" x="224" y="112" width="64" height="32"/>
+  <object id="28" x="128" y="192" width="144" height="16"/>
+  <object id="29" x="144" y="208" width="16" height="16"/>
+  <object id="30" x="176" y="208" width="16" height="16"/>
+  <object id="31" x="208" y="208" width="16" height="16"/>
+  <object id="32" x="240" y="208" width="16" height="16"/>
+  <object id="38" x="288" y="160" width="16" height="48"/>
+  <object id="41" x="-16" y="32" width="16" height="16"/>
+  <object id="47" x="32" y="16">
+   <polygon points="0,0 -16,16 -16,0"/>
   </object>
-  <object id="35" x="144" y="8">
-   <polygon points="0,0 8,8 8,0"/>
+  <object id="48" x="16" y="208">
+   <polygon points="0,0 0,16 16,16"/>
   </object>
-  <object id="36" x="152" y="104">
-   <polygon points="0,0 0,8 -8,8"/>
+  <object id="49" x="304" y="208">
+   <polygon points="0,0 -16,16 0,16"/>
   </object>
-  <object id="37" x="8" y="104">
-   <polygon points="0,0 8,8 0,8"/>
+  <object id="50" x="288" y="16">
+   <polygon points="0,0 16,16 16,0 0,0"/>
   </object>
-  <object id="38" x="144" y="80" width="8" height="24"/>
-  <object id="41" x="-8" y="16" width="8" height="8"/>
  </objectgroup>
 </map>
