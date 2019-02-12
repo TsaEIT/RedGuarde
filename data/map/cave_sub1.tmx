@@ -58,7 +58,7 @@
   </object>
   <object id="53" name="doorEntity" x="112" y="272" width="16" height="16">
    <properties>
-    <property name="framewidth" type="int" value="8"/>
+    <property name="framewidth" type="int" value="16"/>
     <property name="image" value="door"/>
    </properties>
   </object>

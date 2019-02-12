@@ -256,7 +256,7 @@ game.vampireEntity = me.Entity.extend({ // TODO: Re-add to tiled. AFTER REIGONAL
   update : function (dt) {
       if (game.data.flag) {
           me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha += 0.01;
-          if (me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha > 1) {
+          if (me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha > 2) {
               me.game.world.children.find(function (e) {return e.name == 'tobecontinued'}).alpha += 0.1;
               me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha = 1;
           }
