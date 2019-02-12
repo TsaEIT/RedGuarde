@@ -1,4 +1,4 @@
-melonJS boilerplate
+RedGuarde
 -------------------------------------------------------------------------------
 
 features :
@@ -11,11 +11,11 @@ features :
 - standalone build for desktop operating systems
 - optional ES5 shim for non ES5 compliant browser (see index.html)
 
-## To run distribution
+## To Run
 
 To build, be sure you have [node](http://nodejs.org) installed. Clone the project:
 
-    git clone https://github.com/melonjs/boilerplate.git
+    git clone https://github.com/TsaEIT/RedGuarde.git
 
 Then in the cloned directory, simply run:
 
