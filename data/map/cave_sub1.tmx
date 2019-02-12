@@ -52,7 +52,7 @@
   <object id="50" name="unhideEntity" x="96" y="416" width="16" height="16"/>
   <object id="52" name="doorEntity" x="80" y="96" width="16" height="16">
    <properties>
-    <property name="framewidth" type="int" value="8"/>
+    <property name="framewidth" type="int" value="16"/>
     <property name="image" value="door"/>
    </properties>
   </object>
