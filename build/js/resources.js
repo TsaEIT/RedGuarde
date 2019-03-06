@@ -45,6 +45,16 @@ game.resources = [
         "src": "data/img/map/fireplace.png"
     },
     {
+        "name": "gold",
+        "type": "image",
+        "src": "data/img/map/gold.png"
+    },
+    {
+        "name": "path",
+        "type": "image",
+        "src": "data/img/map/path.png"
+    },
+    {
         "name": "stonespikes",
         "type": "image",
         "src": "data/img/map/stonespikes.png"
@@ -95,6 +105,11 @@ game.resources = [
         "src": "data/map/cave_sub2.tmx"
     },
     {
+        "name": "path",
+        "type": "tmx",
+        "src": "data/map/path.tmx"
+    },
+    {
         "name": "tavern",
         "type": "tmx",
         "src": "data/map/tavern.tmx"
@@ -108,6 +123,16 @@ game.resources = [
         "name": "fireplace",
         "type": "tsx",
         "src": "data/map/fireplace.tsx"
+    },
+    {
+        "name": "gold",
+        "type": "tsx",
+        "src": "data/map/gold.tsx"
+    },
+    {
+        "name": "path",
+        "type": "tsx",
+        "src": "data/map/path.tsx"
     },
     {
         "name": "tavern",
