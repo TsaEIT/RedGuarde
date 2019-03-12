@@ -23,6 +23,9 @@ game.HUD.Container = me.Container.extend({
         // add our child score object at the top left corner
         this.addChild(new game.HUD.KeyItem(5, 5));
         this.addChild(new game.HUD.Message(0, 5));
+        
+        // add the object at pos (10,10)
+        this.addChild(new myButton(120, 96));
     }
 });
 
@@ -108,4 +111,41 @@ game.HUD.Message = me.Renderable.extend({
         this.font.draw (context, game.data.message, me.game.viewport.width + this.pos.x - 130, me.game.viewport.height + this.pos.y - 2);
     }
 
+});
+
+// create a basic GUI Object
+var myButton = me.GUI_Object.extend(
+{
+   init:function (x, y)
+   {
+      this.x_loc = x;
+      this.y_loc = y;
+      var settings = {}
+      settings.image = "spider";
+      settings.framewidth = 22;
+      settings.frameheight = 14;
+      // super constructor
+      this._super(me.GUI_Object, "init", [x, y, settings]);
+      // define the object z order
+      this.pos.z = 4;
+   },
+
+   // output something in the console
+   // when the object is clicked
+   onClick:function (event)
+   {
+      console.log("clicked!");
+      // don't propagate the event
+      return false;
+   }//,
+   /*draw: function() {
+      var settings = {}
+      settings.image = "spider";
+      settings.framewidth = 22;
+      settings.frameheight = 14;
+      // super constructor
+      this._super(me.GUI_Object, "init", [this.x_loc, this.y_loc, settings]);
+      // define the object z order
+      this.pos.z = 4;
+   } */
 });
