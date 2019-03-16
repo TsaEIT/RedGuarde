@@ -19,3 +19,7 @@ Add inventory, and chest gui.
 WHEN SUDMITTING
 Export all .tmx files into .json format. Should improve proformance.
     MOVE ORIGINAL .TMX FILES AFTERWARD. KEEPING THEM IN THE SAME DIRECTORY CAUSES PROBLEMS, AND DELETING THEM WILL BE PROBLEMATIC.
+	
+
+Use the melonjs-scenes
+https://github.com/melonjs/melonJS/issues/672

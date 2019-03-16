@@ -135,6 +135,7 @@ var myButton = me.GUI_Object.extend(
    onClick:function (event)
    {
       console.log("clicked!");
+      me.levelDirector.loadLevel('path')
       // don't propagate the event
       return false;
    }//,
