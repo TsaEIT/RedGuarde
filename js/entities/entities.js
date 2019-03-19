@@ -32,7 +32,8 @@ game.PlayerEntity = me.Entity.extend({
      * update the entity
      */
     update : function (dt) {
-        
+        // game.data.player.x_cord = this.pos._x;
+        // game.data.player.y_cord = this.pos._y;
         if (!this.alive) {
             this.body.vel.y = this.body.vel.x = 0;
             if (!this.renderable.isCurrentAnimation("die") && !this.renderable.isCurrentAnimation("dead")) {
@@ -68,13 +69,15 @@ game.PlayerEntity = me.Entity.extend({
         
         if (game.data.frozen) {
             moving = true;
-
-            // update the entity velocity
-            if (this.distanceTo(me.game.world.children.find(function (e) {return e.name == 'stopEntity'})) >= 9) { //Return here
-                this.body.vel.y = -0.3 * me.timer.tick;
-            } else {
-                moving = false;
-                game.data.flag = true;
+            var stop_entity = me.game.world.children.find(function (e) {return e.name == 'stopEntity'});
+            if (typeof(stop_entity) != "undefined") {
+                // update the entity velocity
+                if (this.distanceTo(stop_entity) > 16) { //Return here
+                    this.body.vel.y = -0.3 * me.timer.tick;
+                } else {
+                    moving = false;
+                    game.data.flag = true;
+                }
             }
         } else {
             var moving = false;
@@ -251,13 +254,12 @@ game.vampireEntity = me.Entity.extend({ // TODO: Re-add to tiled. AFTER REIGONAL
     // this.renderable.setCurrentAnimation("normal");
     
     me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha = 0;
-    me.game.world.children.find(function (e) {return e.name == 'tobecontinued'}).alpha = 0;
   },
   update : function (dt) {
       if (game.data.flag) {
           me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha += 0.01;
           if (me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha > 2) {
-              me.game.world.children.find(function (e) {return e.name == 'tobecontinued'}).alpha += 0.1;
+              console.log('Cutscene1 Fired!');
               me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha = 1;
           }
           // this.body.vel.y += 0.5 * me.timer.tick;
@@ -289,7 +291,7 @@ game.stopEntity = me.Entity.extend({
   }
 });
  
- game.skelespiderEntity = me.Entity.extend({
+game.skelespiderEntity = me.Entity.extend({
   // extending the init function is not mandatory
   // unless you need to add some extra initialization
   init: function (x, y, settings) {
@@ -347,4 +349,52 @@ game.spikesEntity = me.Entity.extend({
   onCollision : function (response, other) {
       return false;
   }
+});
+
+game.CutSceneEntity = me.CollectableEntity.extend({
+
+    /**
+     * constructor
+     */
+    init:function (x, y, settings) {
+        // call the constructor
+        this._super(me.Entity, 'init', [x, y , settings]);
+        
+        // set the default horizontal & vertical speed (accel vector)
+        this.body.setVelocity(0.5, 0);
+
+        // set the display to follow our position on both axis
+        me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
+
+        // ensure the player is updated even when outside of the viewport
+        this.alwaysUpdate = true;
+    },
+
+    /**
+     * update the entity
+     */
+    update : function (dt) {
+        this.body.vel.x += this.body.accel.x * me.timer.tick;
+
+        // apply physics to the body (this moves the entity)
+        this.body.update(dt);
+
+        // handle collisions against other shapes
+        me.collision.check(this);
+
+        // return true if we moved or if the renderable was updated
+        return (this._super(me.Entity, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
+    },
+
+   /**
+     * colision handler
+     * (called when colliding with other objects)
+     */
+    onCollision : function (response, other) {
+        // Make all other objects solid
+        if (response.b.body.collisionType == me.collision.types.ENEMY_OBJECT) {
+          this.alive = false;
+        }
+        return true;
+    }
 });

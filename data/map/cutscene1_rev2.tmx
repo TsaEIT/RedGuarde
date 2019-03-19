@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="25" height="12" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="4">
+ <imagelayer id="2" name="background">
+  <image source="../img/map/cutscene1_back.png" width="360" height="192"/>
+ </imagelayer>
+ <imagelayer id="3" name="1st_party">
+  <image source="../img/map/cutscene1_1party.png" width="360" height="192"/>
+  <properties>
+   <property name="ratio" type="float" value="1"/>
+  </properties>
+ </imagelayer>
+ <imagelayer id="4" name="focus">
+  <image source="../img/map/cutscene1_focus.png" width="240" height="192"/>
+  <properties>
+   <property name="ratio" type="float" value="2"/>
+  </properties>
+ </imagelayer>
+ <imagelayer id="6" name="3rd_party">
+  <image source="../img/map/cutscene1_3party.png" width="360" height="192"/>
+  <properties>
+   <property name="ratio" type="float" value="3"/>
+  </properties>
+ </imagelayer>
+ <objectgroup id="5" name="Entities">
+  <object id="1" name="mainPlayer" x="80" y="176" width="16" height="16" visible="0">
+   <properties>
+    <property name="framewidth" type="int" value="16"/>
+    <property name="image" value="player"/>
+   </properties>
+  </object>
+  <object id="3" name="cutSceneEntity" x="96" y="176" width="16" height="16"/>
+ </objectgroup>
+</map>

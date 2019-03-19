@@ -50,6 +50,7 @@ var game = {
         me.pool.register("stopEntity", game.stopEntity);
         me.pool.register("skelespiderEntity", game.skelespiderEntity);
         me.pool.register("spikesEntity", game.spikesEntity);
+        me.pool.register("cutSceneEntity", game.CutSceneEntity);
         
         
         // keyboard stuff

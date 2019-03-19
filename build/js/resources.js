@@ -40,6 +40,26 @@ game.resources = [
         "src": "data/img/map/cave.png"
     },
     {
+        "name": "cutscene1_1party",
+        "type": "image",
+        "src": "data/img/map/cutscene1_1party.png"
+    },
+    {
+        "name": "cutscene1_3party",
+        "type": "image",
+        "src": "data/img/map/cutscene1_3party.png"
+    },
+    {
+        "name": "cutscene1_back",
+        "type": "image",
+        "src": "data/img/map/cutscene1_back.png"
+    },
+    {
+        "name": "cutscene1_focus",
+        "type": "image",
+        "src": "data/img/map/cutscene1_focus.png"
+    },
+    {
         "name": "fireplace",
         "type": "image",
         "src": "data/img/map/fireplace.png"
@@ -63,6 +83,11 @@ game.resources = [
         "name": "tavern",
         "type": "image",
         "src": "data/img/map/tavern.png"
+    },
+    {
+        "name": "tmw_desert_spacing",
+        "type": "image",
+        "src": "data/img/map/tmw_desert_spacing.png"
     },
     {
         "name": "tobecontinuedimg",
@@ -103,6 +128,16 @@ game.resources = [
         "name": "cave_sub2",
         "type": "tmx",
         "src": "data/map/cave_sub2.tmx"
+    },
+    {
+        "name": "cutscene1_rev2",
+        "type": "tmx",
+        "src": "data/map/cutscene1_rev2.tmx"
+    },
+    {
+        "name": "cutscene1",
+        "type": "tmx",
+        "src": "data/map/cutscene1.tmx"
     },
     {
         "name": "path",
