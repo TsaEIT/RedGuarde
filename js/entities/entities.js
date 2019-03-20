@@ -259,7 +259,7 @@ game.vampireEntity = me.Entity.extend({ // TODO: Re-add to tiled. AFTER REIGONAL
       if (game.data.flag) {
           me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha += 0.01;
           if (me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha > 2) {
-              console.log('Cutscene1 Fired!');
+              me.levelDirector.loadLevel('cutscene1_rev2');
               me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha = 1;
           }
           // this.body.vel.y += 0.5 * me.timer.tick;

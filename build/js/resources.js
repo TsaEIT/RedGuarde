@@ -30,6 +30,11 @@ game.resources = [
         "src": "data/bgm/"
     },
     {
+        "name": "favicon",
+        "type": "image",
+        "src": "data/img/gui/favicon.png"
+    },
+    {
         "name": "title_screen",
         "type": "image",
         "src": "data/img/gui/title_screen.png"
@@ -83,11 +88,6 @@ game.resources = [
         "name": "tavern",
         "type": "image",
         "src": "data/img/map/tavern.png"
-    },
-    {
-        "name": "tmw_desert_spacing",
-        "type": "image",
-        "src": "data/img/map/tmw_desert_spacing.png"
     },
     {
         "name": "tobecontinuedimg",
