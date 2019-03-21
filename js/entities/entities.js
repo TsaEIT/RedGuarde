@@ -259,7 +259,7 @@ game.vampireEntity = me.Entity.extend({ // TODO: Re-add to tiled. AFTER REIGONAL
       if (game.data.flag) {
           me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha += 0.01;
           if (me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha > 2) {
-              me.levelDirector.loadLevel('cutscene1_rev2');
+              me.levelDirector.loadLevel('cutscene1');
               me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha = 1;
           }
           // this.body.vel.y += 0.5 * me.timer.tick;
@@ -394,6 +394,7 @@ game.CutSceneEntity = me.CollectableEntity.extend({
         // Make all other objects solid
         if (response.b.body.collisionType == me.collision.types.ENEMY_OBJECT) {
           this.alive = false;
+          console.log('End Of Cutscene Part 1');
         }
         return true;
     }
