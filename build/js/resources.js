@@ -90,6 +90,11 @@ game.resources = [
         "src": "data/img/map/tavern.png"
     },
     {
+        "name": "tmw_desert_spacing",
+        "type": "image",
+        "src": "data/img/map/tmw_desert_spacing.png"
+    },
+    {
         "name": "tobecontinuedimg",
         "type": "image",
         "src": "data/img/map/tobecontinuedimg.png"
