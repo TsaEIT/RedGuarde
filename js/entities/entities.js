@@ -357,6 +357,7 @@ game.CutSceneEntity = me.CollectableEntity.extend({
      * constructor
      */
     init:function (x, y, settings) {
+        me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha = 0;
         // call the constructor
         this._super(me.Entity, 'init', [x, y , settings]);
         
@@ -391,10 +392,9 @@ game.CutSceneEntity = me.CollectableEntity.extend({
      * (called when colliding with other objects)
      */
     onCollision : function (response, other) {
-        // Make all other objects solid
-        if (response.b.body.collisionType == me.collision.types.ENEMY_OBJECT) {
-          this.alive = false;
-          console.log('End Of Cutscene Part 1');
+        me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha += 0.01;
+        if (me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha >= 1) {
+            console.log('End Of Cutscene Part 1');
         }
         return true;
     }

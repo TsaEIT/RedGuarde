@@ -13,6 +13,10 @@ game.PlayScreen = me.ScreenObject.extend({
     this.HUD = new game.HUD.Container();
     me.game.world.addChild(this.HUD);
     
+    // add our HUD to the game world
+    this.inventory = new game.inventory.Container();
+    me.game.world.addChild(this.inventory);
+    
     
     me.audio.setVolume(1)
     me.audio.playTrack("tavern-audio");

@@ -9,7 +9,10 @@ var game = {
         lives: 3,
         flag: false,
         wait_for_reload: false,
-        message: ""
+        message: "",
+        gui : {
+            inventory_button_visible: false
+        }
     },
     
     "post_message": function(message) {
@@ -63,6 +66,8 @@ var game = {
         me.input.bindKey(me.input.KEY.S, "down");
         me.input.bindKey(me.input.KEY.A,  "left");
         me.input.bindKey(me.input.KEY.D, "right");
+        
+        me.input.bindKey(me.input.KEY.I, "inventory"); // Can replace w/ E
         
         // Start the game.
         me.state.change(me.state.MENU);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="14" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="47">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="14" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="49">
  <tileset firstgid="1" source="path.tsx"/>
  <layer id="3" name="Foor" width="14" height="27">
   <data encoding="base64">
@@ -91,9 +91,6 @@
   <object id="35" x="160" y="144">
    <polygon points="0,0 16,16 16,0"/>
   </object>
-  <object id="36" x="160" y="112">
-   <polygon points="0,0 16,-16 16,0 0,0"/>
-  </object>
   <object id="37" x="176" y="64">
    <polygon points="0,0 -64,-64 0,-64"/>
   </object>
@@ -108,6 +105,12 @@
   </object>
   <object id="45" x="192" y="256">
    <polygon points="0,0 16,-16 16,0"/>
+  </object>
+  <object id="47" x="160" y="112">
+   <polygon points="0,0 16,-16 16,0"/>
+  </object>
+  <object id="48" x="156" y="428">
+   <polygon points="0,0 40,0 36,4 4,4"/>
   </object>
  </objectgroup>
  <layer id="4" name="Overlay" width="14" height="27">

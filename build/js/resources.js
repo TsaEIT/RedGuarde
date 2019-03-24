@@ -30,6 +30,11 @@ game.resources = [
         "src": "data/bgm/"
     },
     {
+        "name": "black",
+        "type": "image",
+        "src": "data/img/gui/black.png"
+    },
+    {
         "name": "favicon",
         "type": "image",
         "src": "data/img/gui/favicon.png"
