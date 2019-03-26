@@ -12,7 +12,8 @@ var game = {
         message: "",
         gui : {
             inventory_button_visible: false
-        }
+        },
+		player_dir: "u"
     },
     
     "post_message": function(message) {

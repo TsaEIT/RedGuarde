@@ -32,6 +32,8 @@ game.PlayerEntity = me.Entity.extend({
      * update the entity
      */
     update : function (dt) {
+		this.body.vel.x = 0;
+		this.body.vel.y = 0;
         // game.data.player.x_cord = this.pos._x;
         // game.data.player.y_cord = this.pos._y;
         if (!this.alive) {
@@ -70,10 +72,10 @@ game.PlayerEntity = me.Entity.extend({
         if (game.data.frozen) {
             moving = true;
             var stop_entity = me.game.world.children.find(function (e) {return e.name == 'stopEntity'});
-            if (typeof(stop_entity) != "undefined") {
+            if (typeof(stop_entity) != 'undefined') {
                 // update the entity velocity
                 if (this.distanceTo(stop_entity) > 16) { //Return here
-                    this.body.vel.y = -0.3 * me.timer.tick;
+					this.body.vel.y = -0.3 * me.timer.tick;
                 } else {
                     moving = false;
                     game.data.flag = true;
