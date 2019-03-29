@@ -90,6 +90,11 @@ game.resources = [
         "src": "data/img/map/path.png"
     },
     {
+        "name": "pixil-frame-0 (10)",
+        "type": "image",
+        "src": "data/img/map/pixil-frame-0 (10).png"
+    },
+    {
         "name": "stonespikes",
         "type": "image",
         "src": "data/img/map/stonespikes.png"
@@ -108,6 +113,11 @@ game.resources = [
         "name": "tobecontinuedimg",
         "type": "image",
         "src": "data/img/map/tobecontinuedimg.png"
+    },
+    {
+        "name": "vampire_focus",
+        "type": "image",
+        "src": "data/img/map/vampire_focus.png"
     },
     {
         "name": "door",

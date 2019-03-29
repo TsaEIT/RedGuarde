@@ -360,6 +360,7 @@ game.CutSceneEntity = me.CollectableEntity.extend({
      */
     init:function (x, y, settings) {
         me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha = 0;
+        me.game.world.children.find(function (e) {return e.name == 'Vampire_Focus'}).alpha = 0;
         // call the constructor
         this._super(me.Entity, 'init', [x, y , settings]);
         
@@ -371,13 +372,27 @@ game.CutSceneEntity = me.CollectableEntity.extend({
 
         // ensure the player is updated even when outside of the viewport
         this.alwaysUpdate = true;
+        
+        this.state = 0;
     },
 
     /**
      * update the entity
      */
     update : function (dt) {
-        this.body.vel.x += this.body.accel.x * me.timer.tick;
+        var vampire = me.game.world.children.find(function (e) {return e.name == 'Vampire_Focus'});
+        switch(this.state) {
+            case 0:
+                this.body.vel.x += this.body.accel.x * me.timer.tick;
+                break;
+            case 1:
+                vampire.alpha += 0.1;
+                if (vampire.alpha >= 1) {
+                    vampire.alpha = 1;
+                    this.state = 2;
+                    console.log('End Of Cutscene Part 1');
+                }
+        }
 
         // apply physics to the body (this moves the entity)
         this.body.update(dt);
@@ -394,10 +409,22 @@ game.CutSceneEntity = me.CollectableEntity.extend({
      * (called when colliding with other objects)
      */
     onCollision : function (response, other) {
-        me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha += 0.01;
-        if (me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha >= 1) {
-            console.log('End Of Cutscene Part 1');
+        var shadow = me.game.world.children.find(function (e) {return e.name == 'Shadow'});
+        
+        
+        switch(this.state) {
+            case 0:
+                shadow.alpha += 0.01;
+                if (shadow.alpha >= 1) {
+                    this.pos._x = 48;
+                    shadow.alpha = 1;
+                    this.state = 1;
+                }
+                break;
+
         }
+        
+
         return true;
     }
 });

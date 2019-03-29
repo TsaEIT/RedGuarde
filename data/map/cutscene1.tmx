@@ -24,6 +24,9 @@
  <imagelayer id="8" name="Shadow">
   <image source="../img/gui/black.png" width="240" height="192"/>
  </imagelayer>
+ <imagelayer id="9" name="Vampire_Focus">
+  <image source="../img/map/vampire_focus.png" width="240" height="196"/>
+ </imagelayer>
  <objectgroup id="5" name="Entities">
   <object id="1" name="mainPlayer" x="80" y="176" width="16" height="16" visible="0">
    <properties>
