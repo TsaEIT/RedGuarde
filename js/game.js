@@ -1,5 +1,8 @@
 var game = {
-
+    "whatever": function() {
+        console.log("Whatever!");
+    },
+    
     // an object where to store game information
     data : {
         // score

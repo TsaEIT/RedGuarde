@@ -2,7 +2,6 @@ game.inventory = game.inventory || {};
 
 
 game.inventory.Container = me.Container.extend({
-
     init: function() {
 		this.last_key_press = false;
         // call the constructor
@@ -17,21 +16,23 @@ game.inventory.Container = me.Container.extend({
         // give a name
         this.name = "inventory";
         
-        var background = new gui_img("inventory_back.png", 120, 96, {
+        this.children = [];
+        
+        this.children[0] = new gui_img("inventory_back.png", 120, 96, { // background
             framewidth: 20,
             frameheight: 20
         });
         // add the object at pos (10,10)
-        this.addChild(background);
-        background.alpha = 0;
+        this.addChild(this.children[0]);
+        this.children[0].alpha = 0;
         
-        var test_button = new button("spider.png", 120, 96, {
+        this.children[1] = new button("spider.png", 120, 96, {
             framewidth: 240,
             frameheight: 192
         });
         // add the object at pos (10,10)
-        this.addChild(test_button);
-        test_button.alpha = 0;
+        this.addChild(this.children[1]);
+        this.children[1].alpha = 0;
     }
 });
 

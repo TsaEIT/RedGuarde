@@ -160,14 +160,19 @@ game.resources = [
         "src": "data/map/cave_sub2.tmx"
     },
     {
-        "name": "cutscene1_rev2",
-        "type": "tmx",
-        "src": "data/map/cutscene1_rev2.tmx"
-    },
-    {
         "name": "cutscene1",
         "type": "tmx",
         "src": "data/map/cutscene1.tmx"
+    },
+    {
+        "name": "path_exit",
+        "type": "tmx",
+        "src": "data/map/path_exit.tmx"
+    },
+    {
+        "name": "path_sub2",
+        "type": "tmx",
+        "src": "data/map/path_sub2.tmx"
     },
     {
         "name": "path",

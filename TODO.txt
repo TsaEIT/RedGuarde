@@ -1,7 +1,7 @@
 BEFORE REAGONALS
 Improve player texture. [DONE!]
 Give ememies basic ai. [DONE!]
-Add gui (keys, lives, messages).
+Add gui (keys, lives, messages). [PARTIAL]
 Make spikes deadly. [DONE!]
 Make a 'To Be Continued' Image. [DONE!]
 Add Re-spawning Mechanics. [DONE!]
@@ -9,7 +9,7 @@ Improve Gold Textures. [DONE!]
 Improve Spike Textures.
 
 
-BEFORE STATES (if we get there)
+BEFORE STATES
 Make permanate textures.
 Add in cleric, jail, and elder level.
 Add in some easter eggs (optional).
@@ -19,7 +19,6 @@ Add inventory, and chest gui.
 WHEN SUDMITTING
 Export all .tmx files into .json format. Should improve proformance.
     MOVE ORIGINAL .TMX FILES AFTERWARD. KEEPING THEM IN THE SAME DIRECTORY CAUSES PROBLEMS, AND DELETING THEM WILL BE PROBLEMATIC.
-	
 
-Use the melonjs-scenes
-https://github.com/melonjs/melonJS/issues/672
+    
+For the path level, there is a duplicate, so for more simplified work. Rememeber to update it.

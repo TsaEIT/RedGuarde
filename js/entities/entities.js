@@ -380,16 +380,18 @@ game.CutSceneEntity = me.CollectableEntity.extend({
      * update the entity
      */
     update : function (dt) {
-        var vampire = me.game.world.children.find(function (e) {return e.name == 'Vampire_Focus'});
+        var after_focus = me.game.world.children.find(function (e) {return e.name == 'Vampire_Focus'});
         switch(this.state) {
             case 0:
                 this.body.vel.x += this.body.accel.x * me.timer.tick;
                 break;
             case 1:
-                vampire.alpha += 0.1;
-                if (vampire.alpha >= 1) {
-                    vampire.alpha = 1;
+                after_focus.alpha += 0.1;
+                if (after_focus.alpha >= 1) {
+                    after_focus.alpha = 1;
                     this.state = 2;
+                    game.data.frozen = false;
+                    // game.post_message("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()")
                     console.log('End Of Cutscene Part 1');
                 }
         }
