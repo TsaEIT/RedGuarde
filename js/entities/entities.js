@@ -254,20 +254,6 @@ game.vampireEntity = me.Entity.extend({ // TODO: Re-add to tiled. AFTER REIGONAL
     
     // this.renderable.addAnimation("normal",  [0]);
     // this.renderable.setCurrentAnimation("normal");
-    
-    me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha = 0;
-  },
-  update : function (dt) {
-      if (game.data.flag) {
-          me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha += 0.01;
-          if (me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha > 2) {
-              me.levelDirector.loadLevel('cutscene1');
-              me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha = 1;
-          }
-          // this.body.vel.y += 0.5 * me.timer.tick;
-          // this.body.update(dt);
-          
-      }
   },
   // this function is called by the engine, when
   // an object is touched by something (here collected)
@@ -282,8 +268,28 @@ game.stopEntity = me.Entity.extend({
   init: function (x, y, settings) {
     // call the parent constructor
     this._super(me.CollectableEntity, 'init', [x, y , settings]);
+    game.data.flag = false;
     game.data.frozen = true;
+    me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha = 0;
     me.collision.check(this);
+  },
+  
+  update : function (dt) {
+      var nex_lev = {
+          "cave_sub2": "cutscene1",
+          "jail_open_sub1": "tavern" // Just for tests
+      };
+      if (game.data.flag) {
+          me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha += 0.01;
+          if (me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha > 2) {
+              game.data.flag = false;
+              me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha = 1;
+              me.levelDirector.loadLevel(nex_lev[me.levelDirector.getCurrentLevel().name]);
+          }
+          // this.body.vel.y += 0.5 * me.timer.tick;
+          // this.body.update(dt);
+          
+      }
   },
 
   // this function is called by the engine, when
@@ -359,8 +365,10 @@ game.CutSceneEntity = me.CollectableEntity.extend({
      * constructor
      */
     init:function (x, y, settings) {
+        this.next_level = settings.next_level;
         me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha = 0;
-        me.game.world.children.find(function (e) {return e.name == 'Vampire_Focus'}).alpha = 0;
+        me.game.world.children.find(function (e) {return e.name == 'Over_Shadow'}).alpha = 0;
+        me.game.world.children.find(function (e) {return e.name == 'Overlay'}).alpha = 0;
         // call the constructor
         this._super(me.Entity, 'init', [x, y , settings]);
         
@@ -380,7 +388,8 @@ game.CutSceneEntity = me.CollectableEntity.extend({
      * update the entity
      */
     update : function (dt) {
-        var after_focus = me.game.world.children.find(function (e) {return e.name == 'Vampire_Focus'});
+        var after_focus = me.game.world.children.find(function (e) {return e.name == 'Overlay'});
+        var ov_sha = me.game.world.children.find(function (e) {return e.name == 'Over_Shadow'});
         switch(this.state) {
             case 0:
                 this.body.vel.x += this.body.accel.x * me.timer.tick;
@@ -390,9 +399,18 @@ game.CutSceneEntity = me.CollectableEntity.extend({
                 if (after_focus.alpha >= 1) {
                     after_focus.alpha = 1;
                     this.state = 2;
+                    game.post_message("This Gold Is Mine!");
+                }
+            case 2:
+                ov_sha.alpha += 0.004;
+                if (ov_sha.alpha >= 1) {
+                    ov_sha.alpha = 1;
+                    this.state = 3;
                     game.data.frozen = false;
-                    // game.post_message("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()")
-                    console.log('End Of Cutscene Part 1');
+                    game.post_message("I Can't Believe It!", function () {
+                        game.post_message("He Stole The Gold!")
+                    }) // Probably the worst way to do it
+                    me.levelDirector.loadLevel(this.next_level);
                 }
         }
 

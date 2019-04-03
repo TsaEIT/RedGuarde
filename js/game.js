@@ -19,9 +19,14 @@ var game = {
 		player_dir: "u"
     },
     
-    "post_message": function(message) {
+    "post_message": function(message, callback) {
         game.data.message = message;
-        setTimeout(function(){game.data.message = ""}, 3000);
+        setTimeout(function(){
+            game.data.message = "";
+            if (callback != undefined) {
+                callback();
+            }
+        }, 3000);
     },
     
     // Run on page load.

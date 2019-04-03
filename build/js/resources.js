@@ -90,9 +90,9 @@ game.resources = [
         "src": "data/img/map/path.png"
     },
     {
-        "name": "pixil-frame-0 (10)",
+        "name": "prison-tileset",
         "type": "image",
-        "src": "data/img/map/pixil-frame-0 (10).png"
+        "src": "data/img/map/prison-tileset.png"
     },
     {
         "name": "stonespikes",
@@ -160,14 +160,19 @@ game.resources = [
         "src": "data/map/cave_sub2.tmx"
     },
     {
+        "name": "clearing",
+        "type": "tmx",
+        "src": "data/map/clearing.tmx"
+    },
+    {
         "name": "cutscene1",
         "type": "tmx",
         "src": "data/map/cutscene1.tmx"
     },
     {
-        "name": "path_exit",
+        "name": "jail_open_sub1",
         "type": "tmx",
-        "src": "data/map/path_exit.tmx"
+        "src": "data/map/jail_open_sub1.tmx"
     },
     {
         "name": "path_sub2",
@@ -178,6 +183,16 @@ game.resources = [
         "name": "path",
         "type": "tmx",
         "src": "data/map/path.tmx"
+    },
+    {
+        "name": "prison_cell",
+        "type": "tmx",
+        "src": "data/map/prison_cell.tmx"
+    },
+    {
+        "name": "prison",
+        "type": "tmx",
+        "src": "data/map/prison.tmx"
     },
     {
         "name": "tavern",
@@ -203,6 +218,11 @@ game.resources = [
         "name": "path",
         "type": "tsx",
         "src": "data/map/path.tsx"
+    },
+    {
+        "name": "prison-tileset",
+        "type": "tsx",
+        "src": "data/map/prison-tileset.tsx"
     },
     {
         "name": "tavern",
