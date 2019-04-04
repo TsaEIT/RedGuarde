@@ -7,6 +7,7 @@ game.PlayerEntity = me.Entity.extend({
      * constructor
      */
     init:function (x, y, settings) {
+        this.current_level = me.levelDirector.getCurrentLevel().name;
         // call the constructor
         this._super(me.Entity, 'init', [x, y , settings]);
         
@@ -32,6 +33,12 @@ game.PlayerEntity = me.Entity.extend({
      * update the entity
      */
     update : function (dt) {
+        if (!game.data.instructions_viewed) {
+            if (this.current_level == 'tavern') {
+                game.post_message("Press Tab For Instructions")
+            }    
+        }
+               
 		this.body.vel.x = 0;
 		this.body.vel.y = 0;
         // game.data.player.x_cord = this.pos._x;
@@ -284,6 +291,7 @@ game.stopEntity = me.Entity.extend({
           if (me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha > 2) {
               game.data.flag = false;
               me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha = 1;
+              game.data.frozen = false;
               me.levelDirector.loadLevel(nex_lev[me.levelDirector.getCurrentLevel().name]);
           }
           // this.body.vel.y += 0.5 * me.timer.tick;

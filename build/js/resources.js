@@ -40,14 +40,19 @@ game.resources = [
         "src": "data/img/gui/favicon.png"
     },
     {
-        "name": "inventory_back",
-        "type": "image",
-        "src": "data/img/gui/inventory_back.png"
-    },
-    {
         "name": "title_screen",
         "type": "image",
         "src": "data/img/gui/title_screen.png"
+    },
+    {
+        "name": "tutorial_1",
+        "type": "image",
+        "src": "data/img/gui/tutorial_1.png"
+    },
+    {
+        "name": "tutorial_2",
+        "type": "image",
+        "src": "data/img/gui/tutorial_2.png"
     },
     {
         "name": "cave",

@@ -16,7 +16,8 @@ var game = {
         gui : {
             inventory_button_visible: false
         },
-		player_dir: "u"
+		player_dir: "u",
+        instructions_viewed: false
     },
     
     "post_message": function(message, callback) {
@@ -76,7 +77,8 @@ var game = {
         me.input.bindKey(me.input.KEY.A,  "left");
         me.input.bindKey(me.input.KEY.D, "right");
         
-        me.input.bindKey(me.input.KEY.I, "inventory"); // Can replace w/ E
+        me.input.bindKey(me.input.KEY.TAB, "instruction"); // Can replace w/ E
+        me.input.bindKey(me.input.KEY.ESC, "escape"); // Can replace w/ E
         
         // Start the game.
         me.state.change(me.state.MENU);

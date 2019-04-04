@@ -3,6 +3,11 @@ game.inventory = game.inventory || {};
 
 game.inventory.Container = me.Container.extend({
     init: function() {
+        this.visible_stage = 0;
+        
+        this.last_key_press = false;
+        this.visible = false;
+        
 		this.last_key_press = false;
         // call the constructor
         this._super(me.Container, 'init');
@@ -16,23 +21,75 @@ game.inventory.Container = me.Container.extend({
         // give a name
         this.name = "inventory";
         
-        this.children = [];
+        this.visible_image;
         
-        this.children[0] = new gui_img("inventory_back.png", 120, 96, { // background
-            framewidth: 20,
-            frameheight: 20
+        // change to play state on press Enter or click/tap
+        /*
+        me.input.bindKey(me.input.KEY.ENTER, "enter", true);
+        this.handler = me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {
+            if (action === "enter") {
+                // play something on tap / enter
+                // this will unlock audio on mobile devices
+                // me.audio.play("cling");
+                me.state.change(me.state.PLAY);
+            }
         });
+        
         // add the object at pos (10,10)
         this.addChild(this.children[0]);
         this.children[0].alpha = 0;
-        
-        this.children[1] = new button("spider.png", 120, 96, {
-            framewidth: 240,
-            frameheight: 192
-        });
-        // add the object at pos (10,10)
-        this.addChild(this.children[1]);
-        this.children[1].alpha = 0;
+        */
+    },
+    
+    update : function() {
+        if (me.input.isKeyPressed('escape')) {
+            if (this.visible_stage )
+            console.log('escape')
+            this.visible_stage = 0;
+            if (this.visible_image != null) {
+                this.removeChild(this.visible_image);
+            }
+            this.visible_image = null;
+        }
+        if (me.input.isKeyPressed('instruction')) {
+            game.data.instructions_viewed = true;
+           if (!this.last_key_press) {
+               console.log("test");
+               this.visible_stage += 1;
+               console.log(this.visible_stage);
+               switch(this.visible_stage) {
+                   case 0:
+                        this.visible_image = null;
+                        break;
+                   case 1:
+                        this.visible_image = new gui_img("tutorial_1.png", 120, 96, { // background
+                            framewidth: 220,
+                            frameheight: 180
+                        });
+                        this.addChild(this.visible_image);
+                        break;
+                   
+                   case 2:
+                        this.removeChild(this.visible_image);
+                        this.visible_image = new gui_img("tutorial_2.png", 120, 96, { // background
+                            framewidth: 220,
+                            frameheight: 180
+                        });
+                        this.addChild(this.visible_image);
+                        break;
+                        
+                   case 3:
+                        this.visible_stage = 0;
+                        this.removeChild(this.visible_image);
+                        this.visible_image = null;
+                        break;
+               }
+               console.log(this.visible_image)
+               this.last_key_press = true
+           }
+       } else {
+           this.last_key_press = false;
+       }
     }
 });
 
@@ -112,23 +169,8 @@ var gui_img = me.GUI_Object.extend( {
       this._super(me.GUI_Object, "init", [x, y, settings]);
       // define the object z order
       this.pos.z = 4;
-   },
-   
-   update:function() {
-       if (me.input.isKeyPressed('inventory')) {
-           if (!last_key_press) {
-               game.data.gui.inventory_button_visible = !game.data.gui.inventory_button_visible;
-           }
-           last_key_press = true;
-       } else {
-           last_key_press = false;
-       }
-       if (game.data.gui.inventory_button_visible ) {
-           this.alpha = 1;
-       } else {
-           this.alpha = 0;
-       }
    }
+   
    //,
    /*draw: function() {
       var settings = {}
