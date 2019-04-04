@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="15" height="19" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="23">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="15" height="19" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="25">
  <tileset firstgid="1" source="prison-tileset.tsx"/>
  <layer id="1" name="Floor" width="15" height="19">
   <data encoding="base64">
@@ -41,6 +41,11 @@
   <object id="22" name="me.LevelEntity" x="96" y="160" width="4" height="16">
    <properties>
     <property name="to" value="prison_cell"/>
+   </properties>
+  </object>
+  <object id="24" name="me.LevelEntity" x="96" y="0" width="48" height="16">
+   <properties>
+    <property name="to" value="tavern"/>
    </properties>
   </object>
  </objectgroup>

@@ -245,7 +245,7 @@ game.doorEntity = me.CollectableEntity.extend({
             this.body.setCollisionMask(me.collision.types.NO_OBJECT);
         } else {
             console.log("The Door Remains Shut");
-            game.post_message("The Door Remains Shut");
+            game.post_message("The Door Is Locked");
         }
       }
       return false;
@@ -273,6 +273,7 @@ game.stopEntity = me.Entity.extend({
   // extending the init function is not mandatory
   // unless you need to add some extra initialization
   init: function (x, y, settings) {
+      this.current_level_name = me.levelDirector.getCurrentLevel().name
     // call the parent constructor
     this._super(me.CollectableEntity, 'init', [x, y , settings]);
     game.data.flag = false;
@@ -282,9 +283,12 @@ game.stopEntity = me.Entity.extend({
   },
   
   update : function (dt) {
+      if (this.current_level_name == "jail_open_sub1") {
+          game.post_message("Demon! Halt!")
+      }
       var nex_lev = {
           "cave_sub2": "cutscene1",
-          "jail_open_sub1": "tavern" // Just for tests
+          "jail_open_sub1": "prison_cell" // Just for tests
       };
       if (game.data.flag) {
           me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha += 0.01;
@@ -292,7 +296,7 @@ game.stopEntity = me.Entity.extend({
               game.data.flag = false;
               me.game.world.children.find(function (e) {return e.name == 'Shadow'}).alpha = 1;
               game.data.frozen = false;
-              me.levelDirector.loadLevel(nex_lev[me.levelDirector.getCurrentLevel().name]);
+              me.levelDirector.loadLevel(nex_lev[this.current_level_name]);
           }
           // this.body.vel.y += 0.5 * me.timer.tick;
           // this.body.update(dt);
