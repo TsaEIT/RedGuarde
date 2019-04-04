@@ -40,6 +40,11 @@ game.resources = [
         "src": "data/img/gui/favicon.png"
     },
     {
+        "name": "heart",
+        "type": "image",
+        "src": "data/img/gui/heart.png"
+    },
+    {
         "name": "title_screen",
         "type": "image",
         "src": "data/img/gui/title_screen.png"
@@ -58,6 +63,11 @@ game.resources = [
         "name": "cave",
         "type": "image",
         "src": "data/img/map/cave.png"
+    },
+    {
+        "name": "city",
+        "type": "image",
+        "src": "data/img/map/city.png"
     },
     {
         "name": "cutscene1_1party",
@@ -165,6 +175,11 @@ game.resources = [
         "src": "data/map/cave_sub2.tmx"
     },
     {
+        "name": "city",
+        "type": "tmx",
+        "src": "data/map/city.tmx"
+    },
+    {
         "name": "clearing",
         "type": "tmx",
         "src": "data/map/clearing.tmx"
@@ -208,6 +223,11 @@ game.resources = [
         "name": "cave",
         "type": "tsx",
         "src": "data/map/cave.tsx"
+    },
+    {
+        "name": "city",
+        "type": "tsx",
+        "src": "data/map/city.tsx"
     },
     {
         "name": "fireplace",

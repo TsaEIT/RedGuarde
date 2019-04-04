@@ -8,6 +8,10 @@ game.PlayerEntity = me.Entity.extend({
      */
     init:function (x, y, settings) {
         this.current_level = me.levelDirector.getCurrentLevel().name;
+        
+        if (this.current_level == 'prison_cell') {
+            game.post_message("A Prison, Really?")
+        }
         // call the constructor
         this._super(me.Entity, 'init', [x, y , settings]);
         
@@ -321,7 +325,7 @@ game.skelespiderEntity = me.Entity.extend({
     this._super(me.Entity, 'init', [x, y , settings]);
     
     // set the default horizontal & vertical speed (accel vector)
-    this.body.setVelocity(0.6, 0.6);    
+    this.body.setVelocity(0.5, 0.5);    
     this.renderable.addAnimation("stand",  [0]);
     this.renderable.setCurrentAnimation("stand");
   },

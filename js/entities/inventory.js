@@ -44,7 +44,6 @@ game.inventory.Container = me.Container.extend({
     update : function() {
         if (me.input.isKeyPressed('escape')) {
             if (this.visible_stage )
-            console.log('escape')
             this.visible_stage = 0;
             if (this.visible_image != null) {
                 this.removeChild(this.visible_image);
@@ -54,9 +53,7 @@ game.inventory.Container = me.Container.extend({
         if (me.input.isKeyPressed('instruction')) {
             game.data.instructions_viewed = true;
            if (!this.last_key_press) {
-               console.log("test");
                this.visible_stage += 1;
-               console.log(this.visible_stage);
                switch(this.visible_stage) {
                    case 0:
                         this.visible_image = null;
@@ -84,7 +81,6 @@ game.inventory.Container = me.Container.extend({
                         this.visible_image = null;
                         break;
                }
-               console.log(this.visible_image)
                this.last_key_press = true
            }
        } else {

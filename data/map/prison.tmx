@@ -45,7 +45,7 @@
   </object>
   <object id="24" name="me.LevelEntity" x="96" y="0" width="48" height="16">
    <properties>
-    <property name="to" value="tavern"/>
+    <property name="to" value="city"/>
    </properties>
   </object>
  </objectgroup>
