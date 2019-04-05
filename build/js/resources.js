@@ -185,6 +185,16 @@ game.resources = [
         "src": "data/map/clearing.tmx"
     },
     {
+        "name": "cleric_sub1",
+        "type": "tmx",
+        "src": "data/map/cleric_sub1.tmx"
+    },
+    {
+        "name": "cleric_sub2",
+        "type": "tmx",
+        "src": "data/map/cleric_sub2.tmx"
+    },
+    {
         "name": "cutscene1",
         "type": "tmx",
         "src": "data/map/cutscene1.tmx"
