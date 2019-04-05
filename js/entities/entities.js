@@ -12,6 +12,11 @@ game.PlayerEntity = me.Entity.extend({
         if (this.current_level == 'prison_cell') {
             game.post_message("A Prison, Really?")
         }
+		
+		if (this.current_level == 'cleric_sub2') {
+			me.game.world.children.find(function (e) {return e.name == 'tobecontinued'}).alpha = 0;
+		}
+			
         // call the constructor
         this._super(me.Entity, 'init', [x, y , settings]);
         
@@ -37,6 +42,10 @@ game.PlayerEntity = me.Entity.extend({
      * update the entity
      */
     update : function (dt) {
+		if (this.current_level == 'cleric_sub2') {
+			me.game.world.children.find(function (e) {return e.name == 'tobecontinued'}).alpha += 0.01;
+		}
+		
         if (!game.data.instructions_viewed) {
             if (this.current_level == 'tavern') {
                 game.post_message("Press Tab For Instructions")
@@ -288,7 +297,7 @@ game.stopEntity = me.Entity.extend({
   
   update : function (dt) {
       if (this.current_level_name == "jail_open_sub1") {
-          game.post_message("Demon! Halt!")
+          game.post_message("Stranger! Halt!")
       }
       var nex_lev = {
           "cave_sub2": "cutscene1",
